@@ -1,8 +1,37 @@
+#header{
+    text-align: center;
+    font-weight: bold;
+}
+
+.container{
+    font-size: larger;
+}
+
+.left-container{
+    float:left;
+    width: 70%;
+}
+
+.right-container{
+    float:right;
+    width: 30%;
+}
+
+table{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+td {
+    padding: 20px;
+}
+
 .hidden-part{
     display: none;
 }
 
-#header{
+.temp-header{
     text-align: center;
+    font-size:xx-large;
     font-weight: bold;
 }

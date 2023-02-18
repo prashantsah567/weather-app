@@ -6,35 +6,194 @@
     <script defer src="runtime.bundle.js"></script>
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
+
 <body>
     <h2 id="header">Welcome to my weather app</h2>
     Enter the city name: <input type="text" id="myInput">
     <span id="errId"></span>
     <p></p>
-    <span id="condition"></span>
+
+    <div class="container">
+        <div class="left-container">
+            <span id="condition"></span>
+            <p></p>
+            <span id="address"></span>
+            <p></p>
+            <span class="hidden-part">Date: </span><span id="date"></span>
+            <p></p>
+            <span class="hidden-part">Latitude: </span><span id="latitude"></span>
+            <p></p>
+            <span class="hidden-part">Longitude: </span><span id="longitude"></span>
+            <p></p>
+            <span class="hidden-part">Temperature: </span><span id="temp"></span><span class="hidden-part">F</span>
+            <p></p>
+            <span class="hidden-part">Feels Like: </span><span id="feelsLike"></span><span class="hidden-part">F</span>
+        </div>
+        <div class="right-container">
+            <p></p>
+            <span class="hidden-part">Sunrise: </span><span id="sunrise"></span>
+            <p></p>
+            <span class="hidden-part">Sunset: </span><span id="sunset"></span>
+            <p></p>
+            <span class="hidden-part">Humidity: </span><span id="humidity"></span>
+            <p></p>
+            <span class="hidden-part">Visibility: </span><span id="visibility"></span>
+            <p></p>
+            <span class="hidden-part">Wind Speed: </span><span id="windSpeed"></span>
+            <p></p>
+            <span id="weatherDesc"></span>
+        </div>
+    </div>
     <p></p>
-    <span id="address"></span>
-    <p></p>
-    <span class="hidden-part">Date: </span><span id="date"></span>
-    <p></p>
-    <span class="hidden-part">Latitude: </span><span id="latitude"></span>
-    <p></p>
-    <span class="hidden-part">Longitude: </span><span id="longitude"></span>
-    <p></p>
-    <span class="hidden-part">Temperature: </span><span id="temp"></span><span class="hidden-part">F</span>
-    <p></p>
-    <span class="hidden-part">Feels Like: </span><span id="feelsLike"></span><span class="hidden-part">F</span>
-    <p></p>
-    <span class="hidden-part">Sunrise: </span><span id="sunrise"></span>
-    <p></p>
-    <span class="hidden-part">Sunset: </span><span id="sunset"></span>
-    <p></p>
-    <span class="hidden-part">Humidity: </span><span id="humidity"></span>
-    <p></p>
-    <span class="hidden-part">Visibility: </span><span id="visibility"></span>
-    <p></p>
-    <span class="hidden-part">Wind Speed: </span><span id="windSpeed"></span>
-    <p></p>
-    <span class="hidden-part">Weather Description: </span><span id="weatherDesc"></span>
+    <br>
+
+    <table>
+        <th><span class="hidden-part">14-days forcast</span></th>
+        <tr>
+            <td>
+            <span id="day-1"></span>
+            <br>
+            <span id="day-1-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-1-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-1-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-2"></span>
+            <br>
+            <span id="day-2-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-2-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-2-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-3"></span>
+            <br>
+            <span id="day-3-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-3-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-3-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-4"></span>
+            <br>
+            <span id="day-4-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-4-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-4-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-5"></span>
+            <br>
+            <span id="day-5-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-5-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-5-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-6"></span>
+            <br>
+            <span id="day-6-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-6-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-6-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-7"></span>
+            <br>
+            <span id="day-7-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-7-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-7-min"></span><span class="hidden-part">F</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            <span id="day-8"></span>
+            <br>
+            <span id="day-8-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-8-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-8-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-9"></span>
+            <br>
+            <span id="day-9-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-9-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-9-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-10"></span>
+            <br>
+            <span id="day-10-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-10-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-10-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-11"></span>
+            <br>
+            <span id="day-11-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-11-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-11-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-12"></span>
+            <br>
+            <span id="day-12-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-12-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-12-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-13"></span>
+            <br>
+            <span id="day-13-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-13-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-13-min"></span><span class="hidden-part">F</span>
+            </td>
+
+            <td>
+            <span id="day-14"></span>
+            <br>
+            <span id="day-14-temp" class="temp-header"></span><span class="hidden-part temp-header">F</span>
+            <br>
+            <span class="hidden-part">Max: </span><span id="day-14-max"></span><span class="hidden-part">F</span>
+            <br>
+            <span class="hidden-part">Min: </span><span id="day-14-min"></span><span class="hidden-part">F</span>
+            </td>
+
+        </tr>
+    </table>
+
 </body>
 </html>
