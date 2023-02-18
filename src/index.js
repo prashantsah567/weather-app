@@ -1,15 +1,18 @@
 import './style.css';
-import myImage from './assets/images/clear-day.jpg';
+import clearDay from './assets/images/clear-day.jpg';
+import clearNight from './assets/images/clear-night.jpg';
+import rain from './assets/images/rain.jpg';
+import snow from './assets/images/snow.jpg';
+import cloudy from './assets/images/cloudy-day.jpg';
+import overcast from './assets/images/overcast.jpg';
+import fogg from './assets/images/fogg.jpg';
 
 const input = document.getElementById('myInput');
 
 //set background color
 document.body.style.backgroundColor = "#94b8b8";
 
-//using the imported image 
-const img = new Image();
-img.src = myImage;
-
+//handling the input value
 input.addEventListener("keydown", (event) =>{
     if(event.key === "Enter"){
         getData();
@@ -26,6 +29,27 @@ async function getData() {
 
         console.log(data);
 
+        //setting custom image
+        const iconVal = data.days[0].icon;
+        const img = new Image();
+        if(iconVal=="clear-day")
+            img.src = clearDay;
+        else if(iconVal=="clear-night")
+            img.src = clearNight;
+        else if(iconVal=="rain")
+            img.src = rain;
+        else if(iconVal=="snow")
+            img.src = snow;
+        else if(iconVal="cloudy")
+            img.src = cloudy;
+        else if(iconVal="overcast")
+            img.src = overcast;
+        else if(iconVal="fogg")
+            img.src = fogg;
+        //console.log(iconVal);
+        document.body.setAttribute("style",`background-image:url(${img.src}); background-size:cover; background-repeat:no-repeat;background-attachment: fixed;`);
+
+
         //assigning all the data fields for current condition
         $("#condition").html(data.days[0].conditions);
         $("#address").html(data.resolvedAddress);
@@ -40,8 +64,7 @@ async function getData() {
         $("#visibility").html(data.currentConditions.visibility);
         $("#windSpeed").html(data.currentConditions.windspeed);
         $("#weatherDesc").html(data.days[0].description);
-
-
+        
         //api calls for background image change
         // const fetchImg = await fetch(`https://pixabay.com/api/?key=32846660-95d8df5d4035034b605954169&q=${data.days[0].icon}&image_type=photo`,{mod: 'cors'});
         // const imgData = await fetchImg.json();
@@ -160,11 +183,7 @@ async function getData() {
         $("#day-14-max").html(data.days[14].tempmax);
         $("#day-14-min").html(data.days[14].tempmin);
 
-
-        //setting custom image
-        document.body.setAttribute("style",`background-image:url(${img.src}); background-size:cover; background-repeat:no-repeat;`);
-
     }catch(err){
-        $("#errId").html("City not found");
+        $("#errId").html("Something wrong");
     }  
 }
