@@ -1,5 +1,15 @@
+import './style.css';
+import myImage from './assets/images/clear-day.jpg';
+
 const input = document.getElementById('myInput');
-document.body.style.backgroundColor = "#94b8b8";
+
+//set background color
+//document.body.style.backgroundColor = "#94b8b8";
+
+//using the imported image 
+const img = new Image();
+img.src = myImage;
+document.body.setAttribute("style",`background-image:url(${img.src}); background-size:cover; background-repeat:no-repeat;`);
 
 input.addEventListener("keydown", (event) =>{
     if(event.key === "Enter"){
@@ -28,7 +38,7 @@ async function getData() {
         $("#temp-max").html(data.days[0].feelslikemax);
         $("#temp-min").html(data.days[0].feelslikemin);
         
-        
+
         //api calls for background image change
         const fetchImg = await fetch(`https://pixabay.com/api/?key=32846660-95d8df5d4035034b605954169&q=${data.days[0].icon}&image_type=photo`,{mod: 'cors'});
         const imgData = await fetchImg.json();
