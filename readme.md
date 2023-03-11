@@ -9,7 +9,7 @@ The following **required** functionality is completed:
 - [x] **Use of API to get live updated data anytime**
 - [x] **User can enter the name of more than 200 cities of the world**
 - [x] **Background image changes according to the weather condition**
-- [ ] **Next 14 days forcast are displayed with minimum and maximum temperature for that day**
+- [x] **Next 14 days forcast are displayed with minimum and maximum temperature for that day**
 
 ## Gif Walkthrough
 
