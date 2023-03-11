@@ -4,4 +4,4 @@
 
 Live Demo: #coming_soon
 
-![Alt text](src/assets/images/sample.png)
+![A short walkthrough](src/assets/weatherApp.gif)
